@@ -14,5 +14,7 @@ function handleCalculator(event) {
   }
   Modal.open()
   Modal.imcResultH2.innerText = `Seu IMC é de ${imcResult.toFixed(2)}`
+  Modal.imcNumberMeaning(imcResult.toFixed(2))
+  console.log(imcResult.toFixed(2))
 }
 button.addEventListener('click', handleCalculator)
