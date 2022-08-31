@@ -1,22 +1,29 @@
 import { Modal } from './modal.js'
+import { alertError } from './alertError.js'
 const weight = document.querySelector('#weight')
 const height = document.querySelector('#height')
 const button = document.querySelector('form button')
-const alertError = document.querySelector('.alert-error')
+
+function numberCheck(value) {
+  return isNaN(value) || value == ''
+}
 
 function handleCalculator(event) {
   event.preventDefault()
   const numberWeight = Number(weight.value)
   const numberHeight = Number(height.value)
   const imc = numberWeight / (numberHeight / 100) ** 2
-  if (isNaN(imc) === false) {
+  if (!numberCheck(imc)) {
     Modal.open()
     Modal.imcResultH2.innerText = `Seu IMC é de ${imc.toFixed(2)}`
   } else {
-    alertError.classList.add('show')
+    alertError.show()
     setTimeout(() => {
-      alertError.classList.add('close')
+      alertError.hidden()
     }, 1500)
+    setTimeout(() => {
+      alertError.removeClasses()
+    }, 2000)
   }
 }
 button.addEventListener('click', handleCalculator)

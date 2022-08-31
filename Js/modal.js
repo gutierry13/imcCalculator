@@ -14,3 +14,7 @@ function HandleClose() {
   Modal.close()
 }
 Modal.modalButton.addEventListener('click', HandleClose)
+window.addEventListener('keydown', event => {
+  console.log(event.key)
+  event.key === 'Escape' ? Modal.close() : undefined
+})

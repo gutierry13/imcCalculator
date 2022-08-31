@@ -127,11 +127,7 @@ form button:hover{
 .modal button:hover{
   transform: scale(1.1);
 }
-.alert-error.show{
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0rem);
-}
+
 .alert-error{
   position: absolute;
   background-color: var(--bg-error);
@@ -147,7 +143,14 @@ form button:hover{
   transform: translateY(-3.6rem);
   transition: transform .5s;
 }
-.alert-error.close{
+.alert-error.show{
+  transform: translateY(0rem);
+  visibility: visible;
+  opacity: 1;
+}
+.alert-error.hidden{
   transform: translateY(-3.6rem);
   transition: transform .5s;
 }
+
+
