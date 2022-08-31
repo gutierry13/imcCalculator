@@ -9,5 +9,14 @@ export const alertError = {
   removeClasses() {
     this.alertError.classList.remove('hidden')
     this.alertError.classList.remove('show')
+  },
+  execute() {
+    this.show()
+    setTimeout(() => {
+      this.hidden()
+    }, 1500)
+    setTimeout(() => {
+      this.removeClasses()
+    }, 2000)
   }
 }
